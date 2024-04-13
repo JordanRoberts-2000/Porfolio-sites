@@ -1,0 +1,57 @@
+---
+import Service from "./Service.astro"
+
+const services = ['Spray Tanning','Barbering', 'Waxing', 'Face', 'Wedding', 'Treatments', 'Spray tanning', 'Hair', 'Color']
+---
+
+<section class="px-4 md:px-16 pb-4 pt-16 relative bg-black text-white overflow-hidden">
+    <div class="absolute top-0 left-0 w-[150%] overflow-hidden">
+        <svg class="fill-white" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+    {services.map((service) => (
+        <Service title={service}/>
+    ))}
+</section>
+<script>
+    const options = {
+    root: null, // Use the viewport as the root
+    rootMargin: '-50% 0% -50% 0%', // No margin around the viewport
+    threshold: 0 // Trigger the callback as soon as the target enters the root
+};
+function callback(entries: IntersectionObserverEntry[]) {
+    entries.forEach(entry => {
+        // Check if the target element intersects with the root (viewport)
+        if (entry.isIntersecting) {
+            console.log("intersecting")
+            entry.target.setAttribute('active', 'true');
+        }else{
+            console.log("left")
+            entry.target.removeAttribute('active');
+        }
+    });
+}
+
+// Create a new Intersection Observer
+const observer = new IntersectionObserver(callback, options);
+
+// Get the target element
+const targetElement = document.querySelectorAll('.trigger'); // Replace 'yourElementId' with the ID of your element
+targetElement.forEach((el) => observer.observe(el))
+// Start observing the target element
+</script>
+<style is:global>
+    .yourElementId{
+        @apply -translate-x-8 -rotate-12 scale-0 opacity-0
+    }
+    .trigger[active] .yourElementId{
+        @apply translate-x-0 rotate-12 scale-110 opacity-100;
+    }
+    .trigger[active] {
+        @apply text-teal-400
+    }
+    .trigger[active] svg{
+        @apply scale-125
+    }
+</style>

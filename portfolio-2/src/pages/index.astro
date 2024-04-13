@@ -1,0 +1,31 @@
+---
+import AboutSection from "../components/ui/sections/AboutSection.astro";
+import GalleryPreviewSection from "../components/ui/sections/GalleryPreviewSection.astro";
+import HeroSection from "../components/ui/sections/HeroSection.astro";
+import PerksSection from "../components/ui/sections/Perks/PerksSection.astro";
+import ReviewSection from "../components/ui/sections/Reviews/ReviewSection.astro";
+import TeamSection from "../components/ui/sections/Team/TeamSection.astro";
+import ServicesSection from "../components/ui/sections/services/ServicesSection.astro";
+import RootLayout from "../layouts/RootLayout.astro";
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Astro</title>
+    </head>
+    <body>
+        <RootLayout>
+            <HeroSection />
+            <AboutSection />
+            <PerksSection />
+            <ServicesSection />
+            <TeamSection />
+            <ReviewSection />
+            <GalleryPreviewSection />
+        </RootLayout>
+    </body>
+</html>

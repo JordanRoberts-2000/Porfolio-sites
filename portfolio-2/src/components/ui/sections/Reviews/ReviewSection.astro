@@ -1,0 +1,46 @@
+---
+import Review from "./Review.astro";
+const data = [
+    {
+        "review": "Absolutely loved my haircut! The stylist understood exactly what I wanted and delivered beyond my expectations. Will definitely be coming back!",
+        "imageUrl": "./review1.jpg"
+    },
+    {
+        "review": "Fantastic experience from start to finish. The salon has a great vibe, and the stylist was so friendly and skilled. Left feeling like a whole new person!",
+        "imageUrl": "./review2.jpg"
+    },
+    {
+        "review": "Highly recommend this salon! The staff is professional, the atmosphere is inviting, and I couldn't be happier with my haircut. 5 stars!",
+        "imageUrl": "./review3.jpg"
+    },
+    {
+        "review": "Best haircut I've had in years! The stylist paid attention to detail and took the time to ensure I was happy with the result. Will be back for sure!",
+        "imageUrl": "./review4.jpg"
+    },
+    {
+        "review": "Incredible service and attention to detail. The stylist listened to my preferences and delivered a haircut that exceeded my expectations. Couldn't be happier!",
+        "imageUrl": "./review5.jpg"
+    },
+    {
+        "review": "Amazing salon experience! The staff was welcoming, the salon was clean and stylish, and my haircut turned out exactly how I wanted. Will be recommending to all my friends!",
+        "imageUrl": "./review6.jpg"
+    },
+    {
+        "review": "Exceptional service and a fantastic haircut! The stylist was skilled and knowledgeable, and the salon had a great atmosphere. Definitely coming back for future appointments!",
+        "imageUrl": "./review7.jpg"
+    },
+    {
+        "review": "Absolutely thrilled with my haircut! The stylist was friendly, professional, and truly talented. I left the salon feeling confident and refreshed. Thank you!",
+        "imageUrl": "./review8.jpg"
+    }
+]
+---
+
+<section class="pt-16">
+    <h3>Hear from our clients</h3>
+    <div class="flex gap-4 px-2 overflow-x-auto snap-x snap-mandatory">
+        {data.map(({imageUrl, review}) => (
+            <Review imageUrl={imageUrl} review={review}/>
+        ))}
+    </div>
+</section>

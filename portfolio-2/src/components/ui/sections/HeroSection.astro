@@ -1,0 +1,47 @@
+---
+import AdvancedImage from "../../AdvancedImage.astro";
+import Button from "../../Button.astro";
+---
+
+<main class="flex flex-col h-[100svh] pb-6">
+    <h1 class="text-5xl font-extrabold text-center pt-20">
+        EXPERIENCE OUR<br />CREATIVE VISION
+    </h1>
+    <p class="text-center pb-4">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+    </p>
+    <div class="grid flex-1 grid-cols-2 grid-rows-12 gap-2 p-2 pb-8">
+        <div class="row-span-7 relative">
+            <img
+                src="./salon1.jpg"
+                alt=""
+                class="h-full absolute w-full object-cover rounded-md"
+            />
+        </div>
+        <div class="row-span-5 relative">
+            <img
+                src="./salon2.jpg"
+                alt=""
+                class="h-full absolute w-full object-cover rounded-md"
+            />
+        </div>
+        <div class="row-span-7 relative">
+            <img
+                src="./salon3.jpg"
+                alt=""
+                class="h-full absolute w-full object-cover rounded-md"
+            />
+        </div>
+        <div class="row-span-5 relative">
+            <img
+                src="./salon4.jpg"
+                alt=""
+                class="h-full absolute w-full object-cover rounded-md"
+            />
+        </div>
+    </div>
+    <Button
+        class="bg-transparent border-2 border-black rounded-full text-black mx-auto"
+        >BOOK ONLINE</Button
+    >
+</main>

@@ -1,0 +1,11 @@
+---
+const { title } = Astro.props;
+---
+
+<div class="border-b-2 border-b-gray-600 text-5xl md:text-6xl pb-8 pt-4 flex font-thin trigger relative">
+    <div class="z-20 transition-colors">{title}</div>
+    <svg class="w-10 h-10 md:w-12 md:h-12 ml-auto stroke-1 md:stroke-[1.5] transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+    </svg>     
+    <img id="yourElementId" src="./salon1.jpg" alt="" class="absolute yourElementId top-0 left-1/2 h-full duration-300 transition-all">  
+</div>

@@ -1,0 +1,19 @@
+---
+import TeamMember from "./TeamMember.astro";
+import teamImage1 from "../../../../assets/images/team/worker1.jpeg"
+import teamImage2 from "../../../../assets/images/team/worker2.jpeg"
+import teamImage3 from "../../../../assets/images/team/worker3.jpeg"
+import teamImage4 from "../../../../assets/images/team/worker4.jpeg"
+import teamImage5 from "../../../../assets/images/team/worker5.jpeg"
+---
+
+<section>
+    <!-- <h3>Meet our amazing team</h3> -->
+    <div class="flex gap-2 overflow-x-auto px-2 py-2 snap-x snap-mandatory">
+        <TeamMember src={teamImage1.src}/>
+        <TeamMember src={teamImage2.src}/>
+        <TeamMember src={teamImage3.src}/>
+        <TeamMember src={teamImage4.src}/>
+        <TeamMember src={teamImage5.src}/>
+    </div>
+</section>
