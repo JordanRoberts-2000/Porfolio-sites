@@ -1,4 +1,5 @@
 ---
+import FontSetup from "../../lib/fonts/FontSetup.astro";
 import AboutSection from "../components/ui/sections/AboutSection.astro";
 import GalleryPreviewSection from "../components/ui/sections/GalleryPreviewSection.astro";
 import HeroSection from "../components/ui/sections/HeroSection.astro";
@@ -15,6 +16,14 @@ import RootLayout from "../layouts/RootLayout.astro";
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
+        <FontSetup config={[{
+            name: "eb_garamond",
+            weights: ["400", "500", "800"],
+            italicWeights: ["400"]
+        },{
+            name: "oswald",
+            weights: ["400"]
+        }]}/>
         <title>Astro</title>
     </head>
     <body>

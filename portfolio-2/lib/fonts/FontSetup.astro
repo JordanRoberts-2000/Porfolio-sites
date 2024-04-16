@@ -1,0 +1,30 @@
+---
+// change type dynamically eg: ttf, wwg
+import { type FontSettings } from "./FontSettingsTypes.ts"
+type Props = {
+    config: FontSettings;
+};
+const { config } = Astro.props;
+const baseCss = config.map((fontSettings) => {
+    const cssFontFamily = `font-family: ${fontSettings.name}`;
+    const normalWeights = fontSettings.weights.map((fontWeight) => {
+        const cssFontWeight = `font-weight: ${fontWeight}`
+        return `@font-face {
+            ${[cssFontFamily, cssFontWeight].join(';')} 
+            font-style: normal;
+            src: url(./fonts/${fontSettings.name}/${fontSettings.name}-${fontWeight}-normal.ttf);
+        }`
+    })
+    const italicWeights = !fontSettings.italicWeights ? [] : fontSettings.italicWeights.map((fontWeight) => {
+        const cssFontWeight = `font-weight: ${fontWeight};`
+        return `@font-face {
+            ${[cssFontFamily, cssFontWeight].join(';')} 
+            font-style: italic;
+            src: url(./fonts/${fontSettings.name}/${fontSettings.name}-${fontWeight}-italic.ttf);
+        }`
+    })
+    const cssGen = [...italicWeights, ...normalWeights].join(" ");
+    return cssGen;
+})
+---
+<style id="font-styles" set:html={baseCss.flat().join(" ")} />

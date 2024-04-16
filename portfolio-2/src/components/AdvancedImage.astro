@@ -34,7 +34,8 @@ const { src, alt, quality, formats, width, height, class: className, sizes, load
     alt={alt}
     {...((width || height) ? { width: width, height: height } : { widths: [640, 768, 1024], sizes: sizes ?? `100vw` })}
     quality={quality ?? important ? 90 : 80}
-    formats={formats ?? ["avif", "webp", "jpg"]}
+    formats={formats ?? ["avif", "webp"]}
+    fallbackFormat='jpg'
     pictureAttributes={{ class: "contents" }}
     class={className}
     {...rest}

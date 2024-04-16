@@ -1,6 +1,8 @@
 ---
+import Button from "../../../../lib/components/Button.astro";
 import AdvancedImage from "../../AdvancedImage.astro";
-import Button from "../../Button.astro";
+import salonImage from "../../../assets/images/hero/salon1.jpg"
+import salonImage2 from "../../../assets/images/hero/salon2.jpg"
 ---
 
 <main class="flex flex-col h-[100svh] pb-6">
@@ -12,15 +14,17 @@ import Button from "../../Button.astro";
     </p>
     <div class="grid flex-1 grid-cols-2 grid-rows-12 gap-2 p-2 pb-8">
         <div class="row-span-7 relative">
-            <img
-                src="./salon1.jpg"
+            <AdvancedImage
+                important
+                src={salonImage}
                 alt=""
                 class="h-full absolute w-full object-cover rounded-md"
             />
         </div>
         <div class="row-span-5 relative">
-            <img
-                src="./salon2.jpg"
+            <AdvancedImage
+                important
+                src={salonImage2}
                 alt=""
                 class="h-full absolute w-full object-cover rounded-md"
             />
