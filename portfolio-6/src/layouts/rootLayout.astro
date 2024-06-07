@@ -1,0 +1,42 @@
+---
+import Header from "@components/header/Header.astro";
+import { PageWrapper, Modal } from "@strawr/astro-components";
+import "../styles/styles.css";
+---
+
+<html lang="en">
+  <head>
+    <slot name="head" />
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body class="overscroll-none">
+    <PageWrapper>
+      <Header slot="header" />
+      <slot />
+      <footer
+        class="h-[40vh] bg-black text-white text-4xl flex justify-center items-center sticky bottom-0 -z-10"
+      >
+        this is footer
+      </footer>
+    </PageWrapper>
+    <div id="modalRoot">
+      <Modal id={"signIn"} animation={"riseUp"} backgroundEffect="zoomIn" />
+    </div>
+  </body>
+</html>
+<!-- <style is:global>
+  @media (prefers-reduced-motion) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+      animation: none !important;
+    }
+  }
+  @view-transition {
+    navigation: auto;
+  }
+</style> -->

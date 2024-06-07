@@ -1,0 +1,29 @@
+---
+const { id } = Astro.props;
+---
+
+<script is:inline define:vars={{ id }}>
+  document.querySelectorAll("[data-modalTrigger]").forEach((el) => {
+    const modalId = el.getAttribute("data-modalTrigger");
+    if (modalId === id) {
+      el.addEventListener("click", () => {
+        const contentWrapper = document.querySelector(`#contentWrapper`);
+        if (!contentWrapper) throw Error("contentWrapper not found");
+        contentWrapper.style.scale = "1.1";
+      });
+    }
+  });
+</script>
+<script>
+  document.querySelectorAll('[id^="modal-backdrop-"]').forEach((el) => {
+    el?.addEventListener("click", (event: any) => {
+      if (event.target === event.currentTarget) {
+        event.target.children[0].removeAttribute("data-modalActive");
+        const contentWrapper: HTMLDivElement | null =
+          document.querySelector(`#contentWrapper`);
+        if (!contentWrapper) throw Error("contentWrapper not found");
+        contentWrapper.style.scale = "1";
+      }
+    });
+  });
+</script>

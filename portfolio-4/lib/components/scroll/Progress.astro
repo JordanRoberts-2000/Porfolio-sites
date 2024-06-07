@@ -1,0 +1,21 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+type Props = HTMLAttributes<'div'>;
+const { class: className, ...attr } = Astro.props;
+---
+
+<div id="progress" class:list={["fixed left-0 top-0 w-full h-1 origin-left z-[9999]", className]} {...attr}></div>
+<style>
+    @keyframes grow-progress {
+        from {
+            transform: scaleX(0);
+        }
+        to {
+            transform: scaleX(1);
+        }
+    }
+    #progress {
+        animation: grow-progress auto linear;
+        animation-timeline: scroll();
+    }
+</style>

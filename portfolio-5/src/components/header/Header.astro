@@ -1,0 +1,27 @@
+---
+import {
+  Button,
+  HamburgerMenu,
+  HeaderWrapper,
+  NavWrapper,
+} from "@strawr/astro-components";
+import Icon from "@strawr/astro-icons";
+---
+
+<HeaderWrapper animationType={"reveal"}>
+  <HamburgerMenu variant="appear" />
+  <div class="ml-auto flex mr-2 py-2 items-center">
+    <NavWrapper animationType={"reveal"}>
+      <ul class="flex gap-12 mr-4">
+        <li class="border-b-2 border-black">Home</li>
+        <li>Services</li>
+        <li>About</li>
+        <li>Blog</li>
+      </ul>
+    </NavWrapper>
+    <Button
+      class={"bg-white border-black border-2 text-black py-1 h-fit rounded-full"}
+      triggerModal={"signIn"}>Lets talk</Button
+    >
+  </div>
+</HeaderWrapper>

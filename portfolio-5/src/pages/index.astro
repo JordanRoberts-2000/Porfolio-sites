@@ -1,0 +1,49 @@
+---
+import { Button, PageWrapper } from "@strawr/astro-components";
+import Modal from "../components/modal/Modal.astro";
+import Header from "../components/header/Header.astro";
+import PerksSection from "../components/perks/PerksSection.astro";
+import ServiceSection from "../components/services/ServiceSection.astro";
+import BenefitSection from "../components/benefits/BenefitSection.astro";
+import TextWrapper from "@components/TextWrapper.astro";
+import Slider from "@components/Slider.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <PageWrapper>
+      <Header slot="header" />
+      <section class="h-screen">
+        <div class="pl-12 pt-24 flex flex-col gap-2">
+          <div class="text-7xl w-[22ch]">
+            Building Brands, One success story at a time
+          </div>
+          <TextWrapper tag="p" casing="capital" class="text-red-900"
+            >this <span class="text-orange-700">man</span></TextWrapper
+          >
+          <Button class={"w-fit rounded-xl text-xl"} capitalize={true}
+            >Our services</Button
+          >
+        </div>
+      </section>
+      <PerksSection />
+      <ServiceSection />
+      <BenefitSection />
+      <Slider size={"small"} variant={"noSnap"}>
+        <div>benifit one</div>
+        <div>benifit two</div>
+        <div>benifit three</div>
+      </Slider>
+    </PageWrapper>
+    <div id="modalRoot">
+      <Modal id={"signIn"} animation={"riseUp"} backgroundEffect="zoomIn" />
+    </div>
+  </body>
+</html>

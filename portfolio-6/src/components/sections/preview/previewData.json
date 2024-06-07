@@ -1,0 +1,82 @@
+[
+  {
+    "id": 2,
+    "title": "Red-Eyed Tree Frog",
+    "description": "The red-eyed tree frog is a vibrant green frog with distinctive red eyes and blue and yellow stripes on its sides. It lives in rainforests in Central America.",
+    "price": 3.00,
+    "rating": 5,
+    "imageSrc": "redEyedTreeFrog"
+  },
+  {
+    "id": 3,
+    "title": "American Bullfrog",
+    "description": "The American bullfrog is a large, green frog native to North America. It is known for its loud croak and voracious appetite.",
+    "price": 6.70,
+    "rating": 5,
+    "imageSrc": "americanBullFrog"
+  },
+  {
+    "id": 4,
+    "title": "Glass Frog",
+    "description": "The glass frog has translucent skin through which its internal organs can be seen. It inhabits tropical forests in Central and South America.",
+    "price": 5.00,
+    "rating": 5,
+    "imageSrc": "glassFrog"
+  },
+  {
+    "id": 5,
+    "title": "Tomato Frog",
+    "description": "The tomato frog, named for its bright red or orange color, is native to Madagascar. It can secrete a sticky substance to deter predators.",
+    "price": 3.30,
+    "rating": 5,
+    "imageSrc": "tomatoFrog"
+  },
+  {
+    "id": 6,
+    "title": "African Clawed Frog",
+    "description": "The African clawed frog is an aquatic frog native to sub-Saharan Africa. It has distinctive clawed toes on its hind legs.",
+    "price": 8.99,
+    "rating": 5,
+    "imageSrc": "africanClawedFrog"
+  },
+  {
+    "id": 7,
+    "title": "Amazon Milk Frog",
+    "description": "The Amazon milk frog, also known as the blue milk frog, is a large tree frog with distinctive blue and white coloring. It is found in the Amazon rainforest.",
+    "price": 6.40,
+    "rating": 5,
+    "imageSrc": "amazonMilkFrog"
+  },
+  {
+    "id": 8,
+    "title": "Pacman Frog",
+    "description": "The Pacman frog, named for its large mouth and round body, is a terrestrial frog native to South America. It is known for its voracious appetite.",
+    "price": 5.50,
+    "rating": 5,
+    "imageSrc": "pacmanFrog"
+  },
+  {
+    "id": 9,
+    "title": "White's Tree Frog",
+    "description": "White's tree frog, also known as the dumpy tree frog, is a large, green or blue-green frog native to Australia and New Guinea. It is known for its docile nature.",
+    "price": 11.99,
+    "rating": 5,
+    "imageSrc": "whiteTreeFrog"
+  },
+  {
+    "id": 10,
+    "title": "Wood Frog",
+    "description": "The wood frog is a small, brown frog found in North America. It is known for its ability to survive being frozen during the winter.",
+    "price": 5.50,
+    "rating": 5,
+    "imageSrc": "woodFrog"
+  },
+  {
+    "id": 11,
+    "title": "Poison Dart Frog",
+    "description": "The poison dart frog is known for its bright colors and toxic skin. It is found in Central and South America.",
+    "price": 5.50,
+    "rating": 5,
+    "imageSrc": "poisonDartFrog"
+  }
+]

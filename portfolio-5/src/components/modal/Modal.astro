@@ -1,0 +1,59 @@
+---
+import { cn } from "@strawr/utils";
+import type { HTMLAttributes } from "astro/types";
+import { cva, type VariantProps } from "class-variance-authority";
+import FadeOutScript from "./scripts/FadeOutScript.astro";
+import ZoomInScript from "./scripts/ZoomInScript.astro";
+import ZoomOutScript from "./scripts/ZoomOutScript.astro";
+import NoEffectScript from "./scripts/NoEffectScript.astro";
+import TranslateScript from "./scripts/TranslateScript.astro";
+
+type Props = HTMLAttributes<"div"> &
+  VariantProps<typeof variants> & {
+    id: string;
+    backgroundEffect?: "zoomOut" | "zoomIn" | "fadeOut" | "slide";
+  };
+const { id, size, animation, class: className, backgroundEffect } = Astro.props;
+const variants = cva(
+  [
+    "bg-blue-500 absolute -translate-x-1/2 left-1/2 -translate-y-1/2 top-1/2 duration-300",
+  ],
+  {
+    variants: {
+      animation: {
+        fadeIn: ["opacity-0 data-[modalActive]:opacity-100 transition-opacity"],
+        riseUp: [
+          "translate-y-[100vh] data-[modalActive]:-translate-y-1/2 transition-transform",
+        ],
+        scaleIn: [
+          "scale-0 opacity-0 data-[modalActive]:scale-100 data-[modalActive]:opacity-100 transition-all",
+        ],
+      },
+      size: {
+        small: ["h-[100px] w-[100px]"],
+        default: ["h-[200px] w-[200px]"],
+        large: [""],
+      },
+    },
+    defaultVariants: {
+      size: "default",
+      animation: "fadeIn",
+    },
+  }
+);
+---
+
+<div
+  id={`modal-backdrop-${id}`}
+  class="w-full has-[[data-modalActive]]:opacity-100 has-[[data-modalActive]]:pointer-events-auto h-lvh fixed z-50 inset-0 bg-black/20 pointer-events-none opacity-0 transition-opacity duration-500"
+>
+  <div id={`modal-${id}`} class={cn(variants({ size, animation }), className)}>
+    <slot />
+  </div>
+</div>
+
+{backgroundEffect === "fadeOut" && <FadeOutScript id={id} />}
+{backgroundEffect === "zoomIn" && <ZoomInScript id={id} />}
+{backgroundEffect === "zoomOut" && <ZoomOutScript id={id} />}
+{backgroundEffect === "slide" && <TranslateScript id={id} />}
+{!backgroundEffect && <NoEffectScript />}

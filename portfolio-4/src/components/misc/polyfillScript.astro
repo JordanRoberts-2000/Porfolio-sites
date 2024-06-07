@@ -1,0 +1,15 @@
+---
+type Props = {
+    cssSupport: string,
+    src: string
+}
+const { cssSupport, src } = Astro.props
+---
+<script define:vars={{cssSupport, src}}>
+    if (!(window.CSS && CSS.supports(cssSupport))) {
+        const script = document.createElement("script");
+        script.src = src;
+        script.async = true;
+        document.head.appendChild(script);
+    }
+</script>

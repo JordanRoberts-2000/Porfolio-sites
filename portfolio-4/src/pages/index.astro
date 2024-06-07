@@ -1,0 +1,53 @@
+---
+import Button from "../components/button/Button.astro";
+import { Icon } from 'astro-icon/components'
+import "../assets/styles/styles.css"
+import PerksSection from "../components/homepage/perksSection.astro";
+import TestimonialsSection from "../components/homepage/testimonialsSection.astro";
+import ServicesSection from "../components/homepage/Services/ServicesSection.astro";
+import Header from "../components/ui/header/Header.astro";
+import Main from "../components/homepage/Main.astro";
+import GalleryPreviewSection from "../components/homepage/GalleryPreviewSection.astro";
+import FAQSection from "../components/homepage/FAQSection.astro";
+import ContactForm from "../components/homepage/ContactForm.astro";
+import Footer from "../components/ui/Footer.astro";
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Astro</title>
+    </head>
+    <body>
+        <Header/>
+        <Main/>
+        <ServicesSection/>
+        <GalleryPreviewSection/>
+        <!-- <PerksSection/> -->
+        <!-- add before psedo class for shadows,
+        home screen at bottom, make content relevant relevent
+        make gallery button and portfolio button have some font
+        test shadow on perks or testimonials + just above gallery preview,
+        make perks look nicer
+        carousel slider fallback (snap = once: allow animation to finish?)
+        carousel component
+        carousel arrows
+        carousel nav circles clickable
+        carousel different image when landscape
+        faq,
+        footer,
+        form button + paragraph
+        make sign up form drawer or serperate page?
+        add socials on home?
+        can you create shadow upwards?
+        fix hover on mobile
+        gallery preview observer watch when to make loading = eager -->
+        <TestimonialsSection/>
+        <FAQSection/>
+        <ContactForm/>
+        <Footer/>
+    </body>
+</html>

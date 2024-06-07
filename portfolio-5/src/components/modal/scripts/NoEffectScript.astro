@@ -1,0 +1,9 @@
+<script>
+  document.querySelectorAll('[id^="modal-backdrop-"]').forEach((el) => {
+    el?.addEventListener("click", (event: any) => {
+      if (event.target === event.currentTarget) {
+        event.target.children[0].removeAttribute("data-modalActive");
+      }
+    });
+  });
+</script>

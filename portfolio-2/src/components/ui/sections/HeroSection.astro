@@ -1,8 +1,11 @@
 ---
 import Button from "../../../../lib/components/Button.astro";
-import AdvancedImage from "../../AdvancedImage.astro";
+import AdvancedImage from "../../../../lib/components/AdvancedImage.astro";
 import salonImage from "../../../assets/images/hero/salon1.jpg"
 import salonImage2 from "../../../assets/images/hero/salon2.jpg"
+import salonImage3 from "../../../assets/images/hero/salon3.jpg"
+import salonImage4 from "../../../assets/images/hero/salon4.jpg"
+import CloudinaryImage from "../../../../lib/components/CloudinaryImage.astro";
 ---
 
 <main class="flex flex-col h-[100svh] pb-6">
@@ -14,9 +17,8 @@ import salonImage2 from "../../../assets/images/hero/salon2.jpg"
     </p>
     <div class="grid flex-1 grid-cols-2 grid-rows-12 gap-2 p-2 pb-8">
         <div class="row-span-7 relative">
-            <AdvancedImage
-                important
-                src={salonImage}
+            <CloudinaryImage
+                src={'Portfolio/Salon/salon4_iiqecc'}
                 alt=""
                 class="h-full absolute w-full object-cover rounded-md"
             />
@@ -30,15 +32,17 @@ import salonImage2 from "../../../assets/images/hero/salon2.jpg"
             />
         </div>
         <div class="row-span-7 relative">
-            <img
-                src="./salon3.jpg"
+            <AdvancedImage
+                important
+                src={salonImage3}
                 alt=""
                 class="h-full absolute w-full object-cover rounded-md"
             />
         </div>
         <div class="row-span-5 relative">
-            <img
-                src="./salon4.jpg"
+            <AdvancedImage
+                important
+                src={salonImage4}
                 alt=""
                 class="h-full absolute w-full object-cover rounded-md"
             />

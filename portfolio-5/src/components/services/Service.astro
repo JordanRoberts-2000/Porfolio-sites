@@ -1,0 +1,27 @@
+---
+import { AdvancedImage, Button } from "@strawr/astro-components";
+import Icon from "@strawr/astro-icons";
+type Props = {
+  title: string;
+  src: any;
+};
+const { title, src } = Astro.props;
+---
+
+<div class="md:h-[65vh] h-[30vh] relative text-white">
+  <div class="absolute inset-0 size-full">
+    <AdvancedImage src={src} alt="" class="size-full object-cover" />
+    <div class="bg-black/30 absolute inset-0"></div>
+    <div
+      class="h-32 w-full absolute bottom-0 bg-gradient-to-t from-black to-transparent"
+    >
+    </div>
+  </div>
+  <div class="absolute bottom-4 left-4 flex flex-col gap-4">
+    <div class="text-4xl w-[12ch]">{title}</div>
+    <Button class={"w-fit"}>
+      Check it out
+      <span class="rotate-45 ml-4"><Icon name="arrow-short" /></span>
+    </Button>
+  </div>
+</div>

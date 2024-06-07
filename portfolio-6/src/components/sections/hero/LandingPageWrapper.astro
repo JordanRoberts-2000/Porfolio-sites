@@ -1,0 +1,65 @@
+---
+import { experimental_AstroContainer as AstroContainer } from "astro/container";
+import { parse } from "node-html-parser";
+import Header from "@components/header/Header.astro";
+import { cn } from "@strawr/utils";
+import type { HTMLAttributes } from "astro/types";
+import { cva, type VariantProps } from "class-variance-authority";
+import { tailwindHeightToPixels } from "src/utils/convertTailwindHeight";
+
+const container = await AstroContainer.create();
+const headerHtml = await container.renderToString(Header);
+const doc = parse(headerHtml);
+const header = doc.querySelector("header");
+type Props = HTMLAttributes<"header"> & VariantProps<typeof variants>;
+const { class: className = "", variant } = Astro.props;
+function modifyHeight(classes: string): string {
+  const height = classes.split(" ").find((cls) => cls.startsWith("h-"));
+  if (height) {
+    const heightCheck = [
+      "h-dvh",
+      "h-svh",
+      "h-lvh",
+      "h-screen",
+      "h-[100vh]",
+      "h-[100svh]",
+      "h-[100dvh]",
+      "h-[100lvh]",
+    ];
+    if (heightCheck.includes(height)) {
+      if (header) {
+        const headerHeightClass = header.classNames
+          .split(" ")
+          .find((cls) => cls.startsWith("h-"));
+        if (!headerHeightClass) return classes;
+        const headerHeight = tailwindHeightToPixels(headerHeightClass);
+        const landingPageHeight = tailwindHeightToPixels(height);
+        return `calc(${landingPageHeight} - ${headerHeight});`;
+      }
+      return "";
+    }
+    return "";
+  }
+  return "";
+}
+const variants = cva([""], {
+  variants: {
+    variant: {
+      full: ["h-svh"],
+      auto: [""],
+      showSmall: ["h-[60svh]"],
+      showLarge: ["h-[85svh]"],
+    },
+  },
+  defaultVariants: {
+    variant: "auto",
+  },
+});
+---
+
+<section
+  class={cn(variants({ variant }), className)}
+  style={{ height: modifyHeight(cn(variants({ variant }), className)!) }}
+>
+  <slot />
+</section>

@@ -1,0 +1,21 @@
+---
+import { AdvancedImage, TextWrapper } from "@strawr/astro-components";
+import homeImage from "@assets/home.jpg";
+import LandingPageWrapper from "./LandingPageWrapper.astro";
+---
+
+<LandingPageWrapper
+  class="flex text-7xl items-center gap-4 justify-center bg-white"
+  variant={"full"}
+>
+  <TextWrapper tag="div">We sell</TextWrapper>
+  <AdvancedImage
+    important
+    src={homeImage}
+    alt=""
+    class="size-[175px] rotate-12 rounded-md object-cover"
+  />
+  <TextWrapper tag="div"
+    >awesome <span class="lora text-green-300">frogs</span></TextWrapper
+  >
+</LandingPageWrapper>

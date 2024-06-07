@@ -1,0 +1,83 @@
+---
+import { cn } from "@strawr/utils";
+import type { HTMLAttributes } from "astro/types";
+import { cva, type VariantProps } from "class-variance-authority";
+
+type Props = HTMLAttributes<"dialog"> &
+  VariantProps<typeof variants> & {
+    id: string;
+  };
+const { variant, class: className, id, ...rest } = Astro.props;
+const variants = cva(["w-[60%] aspect-video"], {
+  variants: {
+    variant: {
+      primary: [""],
+      secondary: [],
+    },
+    animateIn: {},
+  },
+  defaultVariants: {
+    variant: "primary",
+  },
+});
+---
+
+<dialog id={id} {...rest} class={cn(variants({ variant, className }))}>
+  <slot />
+  <form method="dialog">
+    <button>close</button>
+  </form>
+</dialog>
+<style>
+  /*   1. IS-OPEN STATE   */
+  dialog[open] {
+    translate: 0 0;
+    /* animation: fade-dialog-in 500ms forwards; */
+  }
+  dialog[open]::backdrop {
+    opacity: 1;
+  }
+  @starting-style {
+    dialog[open] {
+      translate: 0 100vh;
+    }
+    dialog[open]::backdrop {
+      opacity: 0;
+    }
+  }
+
+  /*   2. EXIT STATE   */
+  dialog {
+    transition:
+      translate 0.7s
+        linear(
+          0,
+          0.007,
+          0.029 2.2%,
+          0.118 4.7%,
+          0.625 14.4%,
+          0.826 19%,
+          0.902,
+          0.962,
+          1.008 26.1%,
+          1.041 28.7%,
+          1.064 32.1%,
+          1.07 36%,
+          1.061 40.5%,
+          1.015 53.4%,
+          0.999 61.6%,
+          0.995 71.2%,
+          1
+        ),
+      overlay 0.7s ease-out allow-discrete,
+      display 0.7s ease-out allow-discrete;
+    translate: 0 100vh;
+  }
+  dialog::backdrop {
+    transition:
+      opacity 0.7s ease-out,
+      overlay 0.7s ease-out allow-discrete,
+      display 0.7s ease-out allow-discrete;
+    opacity: 0;
+  }
+</style>

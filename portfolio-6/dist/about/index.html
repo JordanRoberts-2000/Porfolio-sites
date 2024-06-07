@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v4.9.2"><title>Astro</title><link rel="stylesheet" href="/_astro/about.DCwBzJ6r.css"><script type="module">const o=document.querySelector("#header-dropback"),c=document.querySelector("header");o?.addEventListener("click",()=>{c?.removeAttribute("data-active")});document.querySelectorAll("[data-modalTrigger]").forEach(r=>{const t=r.getAttribute("data-modalTrigger"),e=document.querySelector(`#modal-${t}`);if(!e)throw Error("Modal trigger id could not find matching modalId");r.addEventListener("click",()=>{e.setAttribute("data-modalActive","")})});document.querySelectorAll('[id^="modal-backdrop-"]').forEach(r=>{r?.addEventListener("click",t=>{if(t.target===t.currentTarget){t.target.children[0].removeAttribute("data-modalActive");const e=document.querySelector("#contentWrapper");if(!e)throw Error("contentWrapper not found");e.style.opacity="1"}})});document.querySelectorAll('[id^="modal-backdrop-"]').forEach(r=>{r?.addEventListener("click",t=>{if(t.target===t.currentTarget){t.target.children[0].removeAttribute("data-modalActive");const e=document.querySelector("#contentWrapper");if(!e)throw Error("contentWrapper not found");e.style.scale="1"}})});document.querySelectorAll('[id^="modal-backdrop-"]').forEach(r=>{r?.addEventListener("click",t=>{if(t.target===t.currentTarget){t.target.children[0].removeAttribute("data-modalActive");const e=document.querySelector("#contentWrapper");if(!e)throw Error("contentWrapper not found");e.style.scale="1"}})});document.querySelectorAll('[id^="modal-backdrop-"]').forEach(r=>{r?.addEventListener("click",t=>{t.target===t.currentTarget&&t.target.children[0].removeAttribute("data-modalActive")})});document.querySelectorAll('[id^="modal-backdrop-"]').forEach(r=>{r?.addEventListener("click",t=>{if(t.target===t.currentTarget){t.target.children[0].removeAttribute("data-modalActive");const e=document.querySelector("#contentWrapper");if(!e)throw Error("contentWrapper not found");e.style.transform="translateX(0px)"}})});
+</script>
+<script type="module" src="/_astro/page.DjFFdl9A.js"></script><link rel="stylesheet" href="/__strawr_google_fonts/googleFonts.css"></head> <body class="overscroll-none"> <div id="pageWrapper" class="max-w-screen-2xl mx-auto overflow-x-clip"> <div id="pageContent" class="transition-transform duration-300"> <header class="sticky top-0 w-full h-12 group flex z-50"> <div id="header-dropback" class="-z-10 transition-opacity absolute top-0 w-full h-screen group-data-[active]:pointer-events-auto pointer-events-none bg-blue-800 opacity-0 group-data-[active]:opacity-20"></div>  <button id="hamburgerMenu" class="flex flex-col gap-1.5 p-2 ml-2 my-auto mr-2 relative md:hidden"> <span class="w-6 h-[3px] bg-black inline-block origin-right group-data-[active]:scale-x-0 group-data-[active]:opacity-0 duration-300"></span> <span class="w-6 h-[3px] bg-black inline-block origin-right group-data-[active]:scale-x-0 group-data-[active]:opacity-0 duration-300 delay-75"></span> <span class="w-6 h-[3px] bg-black inline-block origin-right group-data-[active]:scale-x-0 group-data-[active]:opacity-0 duration-300 delay-150"></span> <span class="bg-black inline-block w-6 h-[3px] absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 rotate-45 group-data-[active]:opacity-100 group-data-[active]:scale-100 opacity-0 scale-0 duration-300 group-data-[active]:delay-100"></span> <span class="bg-black inline-block w-6 h-[3px] absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 -rotate-45 group-data-[active]:opacity-100 group-data-[active]:scale-100 opacity-0 scale-0 duration-300 group-data-[active]:delay-100"></span> </button> <div class="ml-auto flex mr-2 py-2 items-center"> <nav class="fixed md:static left-0 top-0 h-screen duration-300 px-4 -z-10 md:h-auto md:flex md:z-0">  <ul class="flex gap-4 mr-4"> <li> <a href="/" class="bg-neutral-100 px-3 hover:bg-lime-200 py-1.5 rounded-lg cursor-pointer"> Home </a> </li> <li> <a href="/about/" class="bg-lime-200 px-3 hover:bg-lime-200 py-1.5 rounded-lg cursor-pointer"> About </a> </li> <!-- <Navitem to="/services/">Services</Navitem>
+        <Navitem to="/gallery/">Gallery</Navitem>
+        <Navitem to="/blog/">Blog</Navitem> --> </ul>  </nav> <script>
+        const nav = document.querySelector('nav');
+        const pageWrapper = document.querySelector('#pageWrapper');
+        if(!pageWrapper) throw Error("reveal animation requires page wrapper component");
+        let navParent = nav.parentNode;
+        let navPreviousSibling = nav.previousElementSibling;
+        let navMoved = false;
+
+        function MoveNav() {
+            pageWrapper.appendChild(nav);
+            navMoved = true;
+        }
+
+        function moveNavigationBack() {
+            if(!navPreviousSibling){
+                navParent.appendChild(nav);
+            }else{
+                navParent.insertBefore(nav, navPreviousSibling.nextSibling);
+            }
+            navMoved = false;
+        }
+
+        window.addEventListener('resize', () => {
+            if(window.innerWidth < 768 && !navMoved)MoveNav();
+            if(window.innerWidth >= 768 && navMoved)moveNavigationBack();
+        })
+
+        if (window.innerWidth < 768) {
+            MoveNav();
+        }
+    </script> <button data-modaltrigger="signIn" class="cursor-pointer inline-flex items-center justify-center relative transition outline-none focus-visible:scale-[0.95] disabled:cursor-not-allowed hover:scale-[1.03] active:scale-95 active:duration-75 w-fit hover:shadow-md ring-offset-2 ring-indigo-500/70 focus-visible:ring-2 disabled:shadow disabled:opacity-50 bg-white border-black border-2 text-black py-1 h-fit px-4 rounded-full"> Lets talk </button>  </div>  </header>   <script>
+    const hamburgerMenu = document.querySelector("#hamburgerMenu");
+    const header = document.querySelector("header");
+    const pageContent =
+        document.querySelector("#pageContent");
+    hamburgerMenu?.addEventListener("click", () => {
+        const nav = document.querySelector("nav");
+        const { width: navWidth } = nav.getBoundingClientRect();
+        if (header?.hasAttribute("data-active")) {
+            requestAnimationFrame(() => {
+                pageContent.style.transform = `translateX(0px)`;
+            });
+        } else {
+            requestAnimationFrame(() => {
+                pageContent.style.transform = `translateX(${navWidth}px)`;
+            });
+        }
+        header?.toggleAttribute("data-active");
+    });
+    window.addEventListener("resize", () => {
+        header?.removeAttribute("data-active");
+        requestAnimationFrame(() => {
+            pageContent.style.transform = `translateX(0px)`;
+        })
+    });
+</script> <div id="contentWrapper" class="transition-all duration-300">   
+about egg
+<section class="h-svh flex text-7xl items-center gap-4 justify-center bg-white" style="height:calc(100svh - 3rem);">  <div>We sell</div> <picture class="contents"> <source srcset="/_astro/home.vDoytHEZ_21TCud.avif 640w, /_astro/home.vDoytHEZ_Z1UvEKQ.avif 768w, /_astro/home.vDoytHEZ_Z2jBH7i.avif 1024w" type="image/avif" sizes="100vw"><source srcset="/_astro/home.vDoytHEZ_Z2elb2x.webp 640w, /_astro/home.vDoytHEZ_Z16zktF.webp 768w, /_astro/home.vDoytHEZ_Z2mt7tn.webp 1024w" type="image/webp" sizes="100vw"> <img src="/_astro/home.vDoytHEZ_1XGxFq.jpg" srcset="/_astro/home.vDoytHEZ_2L0RC.jpg 640w, /_astro/home.vDoytHEZ_1awQqu.jpg 768w, /_astro/home.vDoytHEZ_2dA3py.jpg 1024w" loading="eager" fetchpriority="high" alt="" decoding="sync" sizes="100vw" class="size-[175px] rotate-12 rounded-md object-cover" width="2937" height="1958"> </picture> <div>awesome <span class="lora text-green-300">frogs</span></div>  </section>
+about
+ <footer class="h-[40vh] bg-black text-white text-4xl flex justify-center items-center sticky bottom-0 -z-10">
+this is footer
+</footer>  </div> </div> </div>  <div id="modalRoot"> <div id="modal-backdrop-signIn" class="w-full has-[[data-modalActive]]:opacity-100 has-[[data-modalActive]]:pointer-events-auto h-lvh fixed z-50 inset-0 bg-black/20 pointer-events-none opacity-0 transition-opacity duration-500"> <div id="modal-signIn" class="bg-blue-500 absolute -translate-x-1/2 left-1/2 top-1/2 duration-300 translate-y-[100vh] data-[modalActive]:-translate-y-1/2 transition-transform h-[200px] w-[200px]">  </div> </div>  <script>(function(){const id = "signIn";
+
+  document.querySelectorAll("[data-modalTrigger]").forEach((el) => {
+    const modalId = el.getAttribute("data-modalTrigger");
+    if (modalId === id) {
+      el.addEventListener("click", () => {
+        const contentWrapper = document.querySelector(`#contentWrapper`);
+        if (!contentWrapper) throw Error("contentWrapper not found");
+        contentWrapper.style.scale = "1.1";
+      });
+    }
+  });
+})();</script>     </div> </body></html><!-- <style is:global>
+  @media (prefers-reduced-motion) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+      animation: none !important;
+    }
+  }
+  @view-transition {
+    navigation: auto;
+  }
+</style> -->

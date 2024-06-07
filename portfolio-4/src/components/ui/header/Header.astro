@@ -1,0 +1,42 @@
+---
+import Button from "../../button/Button.astro";
+import PolyfillScript from "../../misc/polyfillScript.astro";
+---
+
+<header class="flex z-20 sticky top-0 from-white to-white/90 via-white/90 bg-gradient-to-b backdrop-blur-sm items-center">
+    <div class="flex flex-col gap-1.5 m-2 ml-4">
+        <span class="bg-black w-6 h-[3px]"></span>
+        <span class="bg-black w-6 h-[3px]"></span>
+        <span class="bg-black w-6 h-[3px]"></span>
+    </div>
+    <Button class={"m-2 ml-auto mr-2 font-futura rounded-none font-light text-sm tracking-widest"}>CONTACT</Button>
+</header>
+<style>
+    @keyframes addShadow {
+        to {
+            @apply shadow-xl;
+        }
+    }
+    @supports (animation-timeline: scroll()) {
+        header {
+            animation: addShadow linear both;
+            animation-range-start: 0px;
+            animation-range-end: 100px;
+            animation-timeline: scroll();
+        }
+    }
+    @supports not (animation-timeline: scroll()) {
+        @keyframes removeShadow {
+            from {
+                @apply shadow-xl;
+            }
+        }
+        header[header-topOfPage] {
+            animation: removeShadow 100ms linear both;
+        }
+        header[header-scrolled] {
+            animation: addShadow 300ms linear both;
+        }
+    }
+</style>
+<PolyfillScript cssSupport={"(animation-timeline: scroll())"} src="polyfills/headerShadow.js"/>

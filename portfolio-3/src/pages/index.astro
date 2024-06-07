@@ -1,0 +1,54 @@
+---
+import RootLayout from "../layouts/rootLayout.astro"
+import { AdvancedImage } from "@strawr/astro-components"
+import HomeImage from "../assets/images/home/homeImage.jpg"
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+        <RootLayout>
+            <div class="flex h-[90vh] mt-8 pl-4 pr-4 gap-4 md:gap-0 md:pl-12 md:pr-16 pt-4 flex-col md:flex-row">
+                <div class="md:flex-[2] font-bold text-5xl md:text-8xl mt-4">THE BEACH YOU CAN <span class="text-emerald-300">TRUST</span> AS MUCH AS YOU <span class="text-orange-400">ENJOY</span></div>
+                <div class="flex-1 h-[90%] my-auto relative md:rotate-3">
+                    <AdvancedImage src={HomeImage} important alt="" class="absolute inset-0 size-full object-cover"/>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 px-8 font-medium mt-8">
+                <div class="flex flex-col p-4 bg-emerald-50 rounded-xl gap-2 items-center">
+                    <svg class="h-12" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M24 0v24H0V0zM12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036c-.01-.003-.019 0-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2m1.984 12.25c-.53.468-1.223.75-1.984.75a2.985 2.985 0 0 1-1.984-.75a1 1 0 1 0-1.324 1.5A4.987 4.987 0 0 0 12 17a4.984 4.984 0 0 0 3.308-1.25a1 1 0 0 0-1.324-1.5M8.5 8c-1.087 0-1.958.68-2.394 1.552a1 1 0 0 0 1.73.997l.058-.101c.162-.324.41-.448.606-.448c.17 0 .382.095.541.336l.065.112a1 1 0 0 0 1.788-.896C10.457 8.68 9.587 8 8.5 8m7 0c-1.087 0-1.957.68-2.394 1.552a1 1 0 0 0 1.73.997l.058-.101c.162-.324.41-.448.606-.448c.17 0 .382.095.541.336l.065.112a1 1 0 1 0 1.788-.896C17.458 8.68 16.587 8 15.5 8"/></g></svg>
+                    Happy
+                </div>
+                <div class="flex flex-col p-4 bg-emerald-50 rounded-xl gap-2 items-center">
+                    <svg class="h-12" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M5.5 1L6 2h5l.5-1zM6 2.5v1.25S6 6.5 8.5 6.5S11 3.75 11 3.75V2.5zM1.984 3.986A1 1 0 0 0 1 5v4a1 1 0 0 0 1.217.977L5 9.357V14l5.879-6.93a1.58 1.58 0 0 0-.438-.07H6.5L3 7.754V5a1 1 0 0 0-1.016-1.014m9.764 3.725L6.412 14H12V8.559c0-.314-.094-.604-.252-.848"/></svg>
+                    Safety
+                </div>
+                <div class="flex flex-col p-4 bg-emerald-50 rounded-xl gap-2 items-center">
+                    <svg class="h-12" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M244.24 60a8 8 0 0 0-7.75-.4c-42.93 21-73.59 11.16-106 .78c-34-10.89-69.25-22.14-117.95 1.64A8 8 0 0 0 8 69.24v119.93a8 8 0 0 0 11.51 7.19c42.93-21 73.59-11.16 106.05-.78c19.24 6.15 38.84 12.42 61 12.42c17.09 0 35.73-3.72 56.91-14.06a8 8 0 0 0 4.49-7.18V66.83a8 8 0 0 0-3.72-6.83M232 181.67c-40.6 18.17-70.25 8.69-101.56-1.32c-19.24-6.15-38.84-12.42-61-12.42a122 122 0 0 0-45.4 9V74.33c40.6-18.17 70.25-8.69 101.56 1.32S189.14 96 232 79.09ZM128 96a32 32 0 1 0 32 32a32 32 0 0 0-32-32m0 48a16 16 0 1 1 16-16a16 16 0 0 1-16 16M56 96v48a8 8 0 0 1-16 0V96a8 8 0 1 1 16 0m144 64v-48a8 8 0 1 1 16 0v48a8 8 0 1 1-16 0"/></svg>
+                    Affordable
+                </div>
+                <div class="flex flex-col p-4 bg-emerald-50 rounded-xl gap-2 items-center">
+                    <svg class="h-12" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M26 20h-6v-2h6zm4 8h-6v-2h6zm-2-4h-6v-2h6z"/><path fill="currentColor" d="M17.003 20a4.9 4.9 0 0 0-2.404-4.173L22 3l-1.73-1l-7.577 13.126a5.7 5.7 0 0 0-5.243 1.503C3.706 20.24 3.996 28.682 4.01 29.04a1 1 0 0 0 1 .96h14.991a1 1 0 0 0 .6-1.8c-3.54-2.656-3.598-8.146-3.598-8.2m-5.073-3.003A3.11 3.11 0 0 1 15.004 20c0 .038.002.208.017.469l-5.9-2.624a3.8 3.8 0 0 1 2.809-.848M15.45 28A5.2 5.2 0 0 1 14 25h-2a6.5 6.5 0 0 0 .968 3h-2.223A16.6 16.6 0 0 1 10 24H8a17.3 17.3 0 0 0 .665 4H6c.031-1.836.29-5.892 1.803-8.553l7.533 3.35A13 13 0 0 0 17.596 28Z"/></svg>
+                    Clean
+                </div>
+                <div class="flex flex-col p-4 bg-emerald-50 rounded-xl gap-2 items-center">
+                    <svg class="h-12" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="m12 20l.76-3c-3.26-.21-6.17-1.6-7.01-3.42c-.09.48-.22.92-.42 1.25C4.67 16 3.33 16 2 16c1.1 0 1.5-1.57 1.5-3.5S3.1 9 2 9c1.33 0 2.67 0 3.33 1.17c.2.33.33.77.42 1.25c.65-1.42 2.57-2.57 4.91-3.1L9 5c2 0 4 0 5.33.67c1.13.56 1.78 1.6 2.36 2.71c2.92.7 5.31 2.28 5.31 4.12c0 1.88-2.5 3.5-5.5 4.16c-.83 1.1-1.64 2.12-2.33 2.67c-.84.67-1.5.67-2.17.67m5-9a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1"/></svg>
+                    Wildlife
+                </div>
+                <div class="flex flex-col p-4 bg-emerald-50 rounded-xl gap-2 items-center">
+                    <svg class="h-12" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M120 40V16a8 8 0 0 1 16 0v24a8 8 0 0 1-16 0m72 88a64 64 0 1 1-64-64a64.07 64.07 0 0 1 64 64m-16 0a48 48 0 1 0-48 48a48.05 48.05 0 0 0 48-48M58.34 69.66a8 8 0 0 0 11.32-11.32l-16-16a8 8 0 0 0-11.32 11.32Zm0 116.68l-16 16a8 8 0 0 0 11.32 11.32l16-16a8 8 0 0 0-11.32-11.32M192 72a8 8 0 0 0 5.66-2.34l16-16a8 8 0 0 0-11.32-11.32l-16 16A8 8 0 0 0 192 72m5.66 114.34a8 8 0 0 0-11.32 11.32l16 16a8 8 0 0 0 11.32-11.32ZM48 128a8 8 0 0 0-8-8H16a8 8 0 0 0 0 16h24a8 8 0 0 0 8-8m80 80a8 8 0 0 0-8 8v24a8 8 0 0 0 16 0v-24a8 8 0 0 0-8-8m112-88h-24a8 8 0 0 0 0 16h24a8 8 0 0 0 0-16"/></svg>
+                    Weather
+                </div>
+            </div>
+            <div class="h-[300vh]">
+
+            </div>
+        </RootLayout>
+	</body>
+</html>

@@ -1,0 +1,16 @@
+---
+import Service from "./Service.astro";
+import Service1Image from "../../assets/service1.jpg";
+import Service1Image2 from "../../assets/service2.jpg";
+import Service1Image3 from "@assets/service3.jpg";
+---
+
+<section class="flex flex-col relative">
+  <Service title="Shop My Home & Closet" src={Service1Image} />
+  <Service title="Check Out My Courses" src={Service1Image2} />
+  <Service
+    title="Hear me on the Power of Purpose Podcast"
+    src={Service1Image3}
+  />
+  <div class="absolute size-full left-1/2 top-0 bg-black -z-10"></div>
+</section>

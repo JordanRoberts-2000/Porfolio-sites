@@ -1,0 +1,72 @@
+---
+import AdvancedImage from "../../../lib/components/image/AdvancedImage.astro";
+const testimonialImages = await Astro.glob("../../assets/images/testimonials/*").then(files => {
+  return files.map(file => file.default);
+});
+---
+
+<section class="px-4 pt-6 bg-black text-white">
+    <div class="font-serif text-5xl pb-2">Testimonials</div>
+    <div class="flex flex-col gap-4">
+        <div class="flex gap-4 py-4 border-t-2 border-gray-700 ">
+            <div class="bg-gray-200 flex-1 relative">
+                <AdvancedImage 
+                    class="absolute inset-0 w-full h-full object-cover"
+                    src={testimonialImages[0]}
+                    alt=""
+                />
+            </div>
+            <div class="flex-1 flex flex-col">
+                <div class="text-gray-400 font-medium font-futura">
+                    Jan 26 2023
+                </div>
+                <div class="font-bold font-serif text-lg">
+                    Living room ideas
+                </div>
+                <p class="font-futura text-gray-200 text-sm mt-8">
+                    "Working with Emma Lowe for our newborn photoshoot was an absolute delight. From the moment we met, their warmth and professionalism put us at ease. They had such a gentle touch with our little one, ensuring their safety and comfort throughout the session. The final images were beyond our expectations—each one captured the innocence and sweetness of our newborn perfectly."
+                </p>
+            </div>
+        </div>
+        <div class="flex gap-4 flex-row-reverse border-t-2 border-gray-700 py-4">
+            <div class="bg-gray-200 flex-1 relative">
+                <AdvancedImage 
+                    class="absolute inset-0 w-full h-full object-cover"
+                    src={testimonialImages[1]}
+                    alt=""
+                />
+            </div>
+            <div class="flex-1 flex flex-col">
+                <div class="text-gray-400 font-medium font-futura">
+                    Jan 26 2023
+                </div>
+                <div class="font-bold font-serif text-lg">
+                    Living room ideas
+                </div>
+                <p class="font-futura text-gray-200 text-sm mt-8">
+                    "The attention to detail and creative vision brought our designs to life in ways we never imagined. From capturing the intricate details of our garments to highlighting their unique features, every image was a work of art."
+                </p>
+            </div>
+        </div>
+        <div class="flex gap-4 border-t-2 border-gray-700 py-4">
+            <div class="bg-gray-200 flex-1 relative">
+                <AdvancedImage 
+                    class="absolute inset-0 w-full h-full object-cover"
+                    src={testimonialImages[2]}
+                    alt=""
+                />
+            </div>
+            <div class="flex-1 flex flex-col">
+                <div class="text-gray-400 font-medium font-futura">
+                    Jan 26 2023
+                </div>
+                <div class="font-bold font-serif text-lg">
+                    Living room ideas
+                </div>
+                <p class="font-futura text-gray-200 text-sm mt-8">
+                    "From the initial consultation to the final delivery of our wedding album, they were an absolute pleasure to work with. Their ability to capture the emotions and moments of our special day was truly remarkable."
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

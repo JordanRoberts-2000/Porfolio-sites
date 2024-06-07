@@ -1,0 +1,33 @@
+---
+import Service from "./Service.astro";
+const serviceImages = await Astro.glob('../../../assets/images/services/*').then(files => {
+  return files.map(file => file.default);
+});
+---
+
+<section class="px-3 pt-2 pb-4 flex flex-col gap-4">
+    <Service
+        title="Weddings"
+        description="Capturing the timeless moments of your special day."
+        alt="example of a professional shot of a clients wedding"
+        src={serviceImages[3]}
+    />
+    <Service
+        title="Products"
+        description="Ensuring each detail is showcased to perfection."
+        alt="example of a professional shot of a clients products"
+        src={serviceImages[2]}
+    />
+    <Service
+        title="Pets"
+        description="From playful antics to tender moments."
+        alt="example of a professional shot of a clients pets"
+        src={serviceImages[1]}
+    />
+    <Service
+        title="Newborn"
+        description="Let me Capture the innocence, purity, and overwhelming love that defines this magical time."
+        alt="example of a professional shot of a clients newborn"
+        src={serviceImages[0]}
+    />
+</section>

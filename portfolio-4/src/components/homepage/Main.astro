@@ -1,0 +1,47 @@
+---
+import AdvancedImage from "../../../lib/components/image/AdvancedImage.astro";
+import Button from "../button/Button.astro";
+import homeImage from "../../assets/images/homepage/home.jpg"
+---
+
+<main class="px-4 pt-2 h-[90svh] flex flex-col">
+    <h1 class="text-4xl mb-[-3.25rem] z-10 relative font-serif">
+        PROFESSIONAL & <br />
+        COMMERCIAL<br /> <span class="text-white text-5xl leading-3">PHOTOGRAPHER</span>
+    </h1>
+    <div class="flex-1 bg-gray-100 relative">
+        <AdvancedImage 
+            alt="A skilled photographer capturing a breathtaking moment."
+            src={homeImage}
+            important
+            class="inset-0 h-full w-full absolute object-cover"
+        />
+        <Button  size={'small'} class={'bottom-1 left-1 absolute gap-2 font-futura text-black bg-white rounded-none'}>
+            see portfolio
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width={3} viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+        </Button>
+    </div>
+    <p class="mt-4 text-gray-700 font-mono">
+        I'm dedicated to capturing the beauty and essence of moments through my lens. With a <span class=" text-blue-700">keen eye for detail and a passion for storytelling</span>, I specialize in a wide range of photography genres.
+    </p>
+    <Button class={"mt-8 py-2 text-lg font-mono font-light gap-4 w-fit"}>
+        Get in touch
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width={1} viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+        </svg>
+    </Button>
+    <div
+        class="flex justify-between border-t border-gray-500 mt-4 pt-4 font-serif"
+    >
+        <div>
+            <div class="font-bold text-lg">950k+</div>
+            <div class="text-gray-600">People trust Avada</div>
+        </div>
+        <div>
+            <div class="font-bold text-lg">950k+</div>
+            <div class="text-gray-600">People trust Avada</div>
+        </div>
+    </div>
+</main>

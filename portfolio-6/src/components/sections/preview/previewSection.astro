@@ -1,0 +1,22 @@
+---
+import { Slider } from "@strawr/astro-components";
+import PreviewItem from "./previewItem.astro";
+import PreviewData from "./previewData.json";
+const images = import.meta.glob(`@assets/preview/*`);
+---
+
+<section class="bg-white">
+  <Slider slideClassName="w-[30%]" class={"gap-8"} variant={"noSnap"}>
+    {
+      PreviewData.map(({ title, description, imageSrc, price, rating }) => (
+        <PreviewItem
+          title={title}
+          description={description}
+          image={images[`/src/assets/preview/${imageSrc}.jpg`]()}
+          price={price}
+          rating={rating}
+        />
+      ))
+    }
+  </Slider>
+</section>

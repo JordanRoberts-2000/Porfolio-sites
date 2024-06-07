@@ -1,0 +1,37 @@
+---
+import { type HTMLAttributes } from "astro/types";
+import { type VariantProps, cva } from "class-variance-authority";
+import { twMerge } from "tailwind-merge";
+type Props = HTMLAttributes<'button'> & VariantProps<typeof variants>;
+const { size, varient, class: className, ...rest } = Astro.props
+const variants = cva(
+    [
+        "rounded-md tracking-wide cursor-pointer inline-flex items-center justify-center",
+        "relative transition outline-none focus-visible:scale-[0.95] disabled:cursor-not-allowed",
+        "hover:scale-[1.03] active:scale-95 active:duration-75"
+    ],
+    {
+        variants: {
+            varient: {
+                primary: [
+                    "bg-black text-white font-semibold shadow hover:shadow-md",
+                    "ring-offset-2 ring-indigo-500/70 focus-visible:ring-2 disabled:shadow disabled:opacity-50",
+                ],
+                secondary: [],
+            },
+            size: {
+                small: ["text-sm py-1 px-3"],
+                default: ["leading-6 py-1 px-6"],
+                large: ["text-lg py-2 px-9"],
+            },
+        },
+        defaultVariants: {
+            varient: "primary",
+            size: "default",
+        },
+    },
+);
+---
+<button class={twMerge(variants({ varient, size, className }))} {...rest}>
+    <slot />
+</button>

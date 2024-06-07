@@ -1,0 +1,33 @@
+---
+import imageSrc from "@assets/perks/perk-1.png";
+import { AdvancedImage } from "@strawr/astro-components";
+// import perkData from "./perkData.json";
+const images = import.meta.glob(`@assets/perks/*`);
+console.log(images);
+---
+
+<section class="flex bg-white">
+  <div
+    id="perkGrid"
+    class="w-[90%] my-8 bg-purple-200 mx-auto grid grid-cols-[1fr_1.5fr_1.5fr_1fr] grid-rows-3 gap-2 h-[1000px]"
+  >
+    <div class="bg-red-400"></div>
+    <div class="bg-blue-400"></div>
+    <div class="bg-red-400"></div>
+    <div class="bg-red-400"></div>
+    <div class="bg-green-400"></div>
+    <div class="bg-red-400"></div>
+    <div class="bg-purple-400"></div>
+    <div class="bg-red-400"></div>
+  </div>
+</section>
+<style>
+  #perkGrid > :nth-child(2),
+  #perkGrid > :nth-child(5) {
+    grid-row: span 2 / span 2;
+  }
+  #perkGrid > :nth-child(3),
+  #perkGrid > :nth-child(7) {
+    grid-column: span 2 / span 2;
+  }
+</style>

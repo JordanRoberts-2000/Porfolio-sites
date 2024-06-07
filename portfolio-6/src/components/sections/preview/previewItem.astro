@@ -1,0 +1,44 @@
+---
+import { AdvancedImage, TextWrapper } from "@strawr/astro-components";
+type Props = {
+  title: string;
+  description: string;
+  image: any;
+  rating: number;
+  price: number;
+};
+const { title, description, image, rating, price } = Astro.props;
+---
+
+<div class="flex flex-col h-full">
+  <AdvancedImage
+    decoding="sync"
+    alt=""
+    src={image}
+    class="h-[250px] object-cover rounded-lg"
+  />
+  <div class="px-2 flex flex-col flex-1">
+    <TextWrapper tag="div" class="text-lg font-bold my-2">{title}</TextWrapper>
+    <TextWrapper tag="div" class="text-sm font-medium text-neutral-700 flex-1"
+      >{description}</TextWrapper
+    >
+    <div class="mt-2 flex justify-between">
+      <TextWrapper
+        tag="div"
+        class="bg-neutral-950 text-white text-sm rounded-full py-1 w-fit px-4"
+        >{"£" + price.toFixed(2)}</TextWrapper
+      >
+      <div class="flex gap-1 text-sm font-semibold items-center">
+        <svg
+          class="size-5 fill-yellow-400"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"
+          ></path></svg
+        >
+        5/5
+      </div>
+    </div>
+  </div>
+</div>

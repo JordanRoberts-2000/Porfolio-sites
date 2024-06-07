@@ -1,0 +1,28 @@
+---
+import {
+  Button,
+  HamburgerMenu,
+  HeaderWrapper,
+  NavWrapper,
+} from "@strawr/astro-components";
+import Navitem from "./Navitem.astro";
+---
+
+<HeaderWrapper animationType={"reveal"}>
+  <HamburgerMenu variant="appear" />
+  <div class="ml-auto flex mr-2 py-2 items-center">
+    <NavWrapper animationType={"reveal"}>
+      <ul class="flex gap-4 mr-4">
+        <Navitem to="/">Home</Navitem>
+        <Navitem to="/about/">About</Navitem>
+        <!-- <Navitem to="/services/">Services</Navitem>
+        <Navitem to="/gallery/">Gallery</Navitem>
+        <Navitem to="/blog/">Blog</Navitem> -->
+      </ul>
+    </NavWrapper>
+    <Button
+      class={"bg-white border-black border-2 text-black py-1 h-fit px-4 rounded-full"}
+      triggerModal={"signIn"}>Lets talk</Button
+    >
+  </div>
+</HeaderWrapper>

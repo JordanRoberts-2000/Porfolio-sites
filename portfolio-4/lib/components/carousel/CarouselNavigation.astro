@@ -1,0 +1,55 @@
+---
+import { type HTMLAttributes } from "astro/types";
+import { type VariantProps, cva } from "class-variance-authority";
+import { twMerge } from "tailwind-merge";
+
+type Props = HTMLAttributes<"li"> & VariantProps<typeof variants> & {
+    count: number
+};
+const { varient, class: className, count } = Astro.props;
+const variants = cva([""], {
+    variants: {
+        varient: {
+            circle: [
+                "w-3 h-3 rounded-full border border-black ",
+            ],
+            expand: ["flex-1 animate-[marker-animate_linear_both] border border-black h-1"],
+        },
+    },
+    defaultVariants: {
+        varient: "circle",
+    },
+});
+---
+<ul class="markers flex gap-2 w-full">
+    {
+        [...Array(count)].map((_, i) => (
+            <li
+                class={twMerge(variants({ varient, className }))}
+                style={`animation-range-start: calc(100vw * ${i} - 40vw); animation-range-end: calc(100vw * ${i} + 40vw);`}
+            ></li>
+        ))
+    }
+</ul>
+<style>
+    .markers li {
+        animation-timeline: --carousel;
+    }
+    @keyframes marker-animate {
+        0% {
+            scale: 1;
+        }
+        50% {
+            background-color: black;
+            scale: 0.9;
+        }
+        100% {
+            scale: 1;
+        }
+    }
+    @keyframes marker-blink {
+        50% {
+            flex: 2;
+        }
+    }
+</style>

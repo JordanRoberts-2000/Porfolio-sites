@@ -1,0 +1,34 @@
+---
+import { AdvancedImage } from "@strawr/astro-components";
+import Perk from "./Perk.astro";
+import PerksImage from "../../assets/perks.jpg";
+---
+
+<div class="flex md:px-8 pb-4">
+  <div class="w-[60%] flex-1 px-12 hidden md:inline-block relative">
+    <AdvancedImage
+      src={PerksImage}
+      alt=""
+      class="absolute inset-0 object-cover size-full px-12"
+    />
+  </div>
+  <div class="flex flex-col px-4 gap-8 flex-1">
+    <Perk
+      number="01"
+      title="Visit My Website"
+      description="Twee before they sold out locavore migas chillwave"
+    />
+    <Perk
+      number="02"
+      title="Read The Blog"
+      description="Everyday carry man bun intelligent wayfairs"
+    />
+    <Perk
+      number="03"
+      title="The Podcast"
+      description="Listen to discover curry"
+    />
+    <Perk number="04" title="My Youtube" description="Yes I vlog my life lol" />
+    <Perk number="05" title="Shop My Feed" description="Buy my shit peseants" />
+  </div>
+</div>

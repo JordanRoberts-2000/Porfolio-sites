@@ -1,0 +1,58 @@
+---
+type Casings = "capital" | "title";
+type Props = {
+  tag: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "div" | "span";
+  lorem?: "small" | "medium" | "large";
+  casing?: Casings;
+  class?: string;
+};
+const { tag, lorem, casing, class: className, ...rest } = Astro.props;
+const TagComponent = tag;
+const html = await Astro.slots.render("default");
+function modifyText(str: string, casing?: Casings) {
+  // Helper function to convert text to camelCase
+  function toTitleCase(text: string) {
+    return text
+      .toLowerCase() // Convert the entire string to lowercase
+      .replace(/\b\w/g, (match) => match.toUpperCase()); // Capitalize the first letter of each word
+  }
+
+  // Split the string into parts that are either tags or text
+  const parts = str.split(/(<[^>]+>)/g);
+
+  // Map over each part and apply the appropriate transformation based on the casing
+  const transformedParts = parts.map((part) => {
+    if (part.startsWith("<") && part.endsWith(">")) {
+      return part; // Return the tag unchanged
+    } else {
+      if (casing === "capital") {
+        return part.toUpperCase();
+      } else if (casing === "title") {
+        return toTitleCase(part);
+      } else {
+        return part; // Return the original text if casing is undefined or not recognized
+      }
+    }
+  });
+
+  // Join the parts back together to form the final string
+  return transformedParts.join("");
+}
+const getLorem = {
+  small: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+  medium:
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque tempora aliquam eum delectus? Voluptates cumque labore deserunt sit provident nihil dicta aperiam",
+  large:
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque tempora aliquam eum delectus? Voluptates cumque labore deserunt sit provident nihil dicta aperiam repellat quo quaerat doloremque facere architecto, quasi voluptatem!",
+};
+---
+
+<TagComponent {...rest} class={className}>
+  {
+    lorem ? (
+      modifyText(getLorem[lorem], casing)
+    ) : (
+      <Fragment set:html={modifyText(html, casing)} />
+    )
+  }
+</TagComponent>

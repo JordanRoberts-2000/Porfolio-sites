@@ -1,0 +1,46 @@
+---
+import { cn } from "@strawr/utils";
+import type { HTMLAttributes } from "astro/types";
+import { cva, type VariantProps } from "class-variance-authority";
+import { parse } from "node-html-parser";
+const slides = await Astro.slots.render("default");
+const children = Array.from(parse(slides).querySelectorAll("> *"));
+type Props = HTMLAttributes<"div"> &
+  VariantProps<typeof sliderVariants> &
+  VariantProps<typeof slideVariants> & {
+    slideClassName?: string;
+  };
+const { class: className, variant, slideClassName, size } = Astro.props;
+const sliderVariants = cva(["flex overflow-x-auto mt-6 px-4 gap-4"], {
+  variants: {
+    variant: {
+      noSnap: [""],
+      snap: ["snap-mandatory snap-x"],
+      large: [""],
+    },
+  },
+  defaultVariants: {
+    variant: "snap",
+  },
+});
+const slideVariants = cva(["shrink-0 snap-center"], {
+  variants: {
+    size: {
+      small: ["w-1/2"],
+      default: ["w-full"],
+      large: [""],
+    },
+  },
+  defaultVariants: {
+    size: "default",
+  },
+});
+---
+
+<ul class={cn(sliderVariants({ variant }), className)}>
+  {
+    children.map((el) => (
+      <li class={cn(slideVariants({ size }), slideClassName)}>{el}</li>
+    ))
+  }
+</ul>
